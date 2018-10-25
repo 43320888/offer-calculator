@@ -1,2 +1,2 @@
 # hacking
-Everything about code architecture except content
+Everything about code architecture except content and backend.
