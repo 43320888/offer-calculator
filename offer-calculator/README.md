@@ -1,68 +1,59 @@
 # Offer-calculator
 Freelancer tool
-Калькулятор проползалов — удобный инструмент для фрилансера.
+## Description 
+Crawler calculator is a handy tool for freelancers.
+Structures thoughts, give recommendations, gives hints.
+## Table of contents
+- [x]  UI/UX
+- [x] SVG (Scalable vector graphics without a single raster pixel)
+- [x] Preloaders
+- [x] Keyframe Animates
+- [ ] BEM(Block, Element, and Modifier)
+- [x] Positioning (Geolocation)
+- [x] Detailed Tests(Mocha, Chai, Sinon, Assert NodeJS)
+- [x] HTTPS (HTTP SSL/TLS) Your personal data is encrypted (securely protected)
+- [x] GIT Readme
+- [x] w3c-validate
+- [x] Optimized compressed code (Simple, Fast and Easy 45 Kb)
+- [x] UML-diagram charts
+- [x] Databases (999999 symbols)
+- [ ] MongoDB
+- [x] MVC-architecture (3333333 controller characters, 444444444 view characters, 33333333 model characters)
+- [ ] distributed architecture
+- [x] monolithic architecture
+## Installation
+### Without installation
+#### cross browser:
+- [x] [SPA](https://hacking.logbook.bizml.ru/offer-calculator) _(single page application)_
+- [x] Module _(Встроить в сайт)_
+- [x] Plugin _(Встроить в сайт)_
+### With installation
+#### cross platform:
+- [ ] Mobile application
+- [ ] Desctop application
+#### Extension
+- [ ] Safari
+- [ ] Chrome
+- [ ] FireFox
+- [ ] Mobile browser
+## Usage 
+### Hot keys (Key Binding):
+- [x] to Start — ctrl/cmd+R
+- [x] to Accept — ctrl/cmd+Enter, ctrl/cmd+Y;
+- [x] to Reject — ctrl/cmd+Backspace, ctrl/cmd+N, ctrl/cmd+Escape;
+- [x] to Navigate — ↓, ↑, tab, shift+tab,
+## Contributing
+If you are interested in fixing issues and contributing directly to the code base, please Pull requests.
+## Credits
+≈ 280 business hours:
+@Art-logbook,
+@boss-logbook, @logbook-bizml,
+@It-logbook, @ProSr, @hacking-logbook
 
-Для удобства предусмотрены	Кей Биндинги ( ctrl/cmd+R, ctrl/cmd+Enter, ctrl/cmd+Backspace, tab, ctrl/cmd+Escape, ctrl/cmd+Y, ctrl/cmd+N )
+The life cycle of software development meets the requirements of Microsoft.
 
+Using the tools of Azure DevOps, applications are created quickly and with high quality, ranging from the idea and the setting of tasks to the delivery of the finished product to the customer.
+## License
+Copyright (c) Logbook. All rights reserved.
 
-Структурирует мысли, даёт рекомендации, даёт подсказки 
-
-Жизненный Цикл разработки ПО удовлетворяет требованиям компании Microsoft.
-
-Используя инструменты Azure DevOps, приложения создаются быстро и с высоким качеством, начиная от идеи и постановки задач, до поставки готового продукта заказчику.
-
-HTTPS (HTTP SSL/TLS) Ваши личные данные зашифрованы (под надёжной защитой). Вначале.
-
-Определение местоположения (Геолокация)
-
-Прелоадеры
-
-≈Один месяц работы одного фулстэк-разработчика
-
-
-Весь код, без ошибок, проходит w3c-валиацию
-
-Кроссплатформенный (адаптируется в модуль/плагин/расширение/мобильное приложение/встраивается на любой сайт)
-Кроссбраузерный
-
-[ ]	Адаптивный Макет
-[ ]	Оптимизированный сжатый код 
-[ ]	Простой, Быстрый и Лёгкий 45 Kb
-
-
-Keyframe-Анимации
-[ ]	Векторная графика без единого растрового пикселя
-
-[ ]	Джаваскрипт ES6 кода: 3333333 символов логики, 444444444 символов представления, 33333333 символов модели
-[ ]	Big data DB with a samples: 999999 символов в базе данных MongoDB,
-
-[ ]	Подробные Тесты(Mocha, Chai, Sinon, Assert NodeJS);
-
-[ ]	Распределённая(не монолитная) MVC-архитектура 999999 символов
-[ ]	UML-диаграммы
-
-[ ]	Без BEM и
-
-# Название проекта: js-tasks
-## Описание 
-Ниже приводится описание вашего проекта. Хорошее описание ясно, коротко и точно. Опишите важность своего проекта и что он делает.
-
-## Оглавление
-необязательно, включать оглавление, чтобы другие люди могли быстро перемещаться по особенно длинным или подробным README.
-
-## Установка
-Установка - это следующий раздел в эффективном README. Сообщите другим пользователям, как установить свой проект локально. Необязательно, включить gif, чтобы сделать процесс еще более понятным для других людей.
-
-## Использование. 
-Следующий раздел - это использование, в котором вы инструктируете других людей о том, как использовать свой проект после их установки. Это также будет хорошим местом для включения скриншотов вашего проекта в действии.
-
-## Содействие
-более крупные проекты часто содержат разделы, посвященные содействию их проекту, в которых изложены инструкции о вкладе. Иногда это отдельный файл. Если у вас есть конкретные настройки вклада, объясните их, чтобы другие разработчики знали, как наилучшим образом способствовать вашей работе. Чтобы узнать больше о том, как помочь другим внести вклад, ознакомьтесь с руководством по настройке рекомендаций для участников репозитория.
-
-## Кредиты
-Включите раздел для кредитов, чтобы выделить и связать авторов проекта.
-
-## Лицензия
-Наконец, включите раздел для лицензии вашего проекта. Для получения дополнительной информации о выборе лицензии ознакомьтесь с руководством по лицензированию GitHub!
-
-_Ваш README должен содержать только необходимую информацию для разработчиков, чтобы начать использовать и вносить свой вклад в ваш проект. Более длинная документация лучше всего подходит для вики, описанных ниже._
+Licensed under the [#EPL](http://www.gnu.org/licenses/license-list.html#EPL) License.
