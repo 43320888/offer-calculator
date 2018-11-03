@@ -82,12 +82,22 @@ pre[data-state="result"]::before {
 }
 
 legend {
+	text-align: left;
+	cursor: pointer;
+}
+
+legend::after {
+	content: "✏️";
+}
+
+meter {
 	background: #eee3e3;
 	border: 1px dashed gray;
 	border-radius: 5px;
-	font-style: italic;
-	padding: 0 10px;
-	text-align: left;
+}
+
+meter:hover {
+	background: #92d1a8;
 }
 
 fieldset {
@@ -130,7 +140,6 @@ button:active {
 
 button:focus {
 	border: 1px solid red;
-	color: white;
 }
 
 h1:not(:hover), button:not(:hover) {

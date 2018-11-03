@@ -10,228 +10,20 @@
  */
 const proposal = [];
 const dataUser = {
+	freelancer: {
+		name: '',
+		surname: '',
+	},
 	client: {
 		name: '',
+		surname: '',
+		fullName: '',
 	},
-	preset: '',
-	placeholders: {
-		names: {
-			Greece: {
-				men: [
-					'Georgios',
-					'Ioannis',
-					'Konstantinos',
-					'Kostas',
-					'Dimitrios',
-					'Nikolaos',
-					'Panagiotis',
-					'Vasileios',
-					'Christos',
-					'Athanasios',
-					'Michail',
-				],
-				women: [
-					'Maria',
-					'Eleni',
-					'Aikaterini',
-					'Vasiliki',
-					'Basiliki',
-					'Sophia',
-					'Angeliki',
-					'Georgia',
-					'Dimitra',
-					'Konstantina',
-					'Paraskevi',
-					'Paraskeui',
-				],
-				surnames: [
-					'Horváth',
-					'Kovács',
-					'Szabó',
-					'Tóth',
-					'Varga',
-					'Kiss',
-					'Molnár',
-					'Németh',
-					'Farkas',
-					'Balogh',
-					'Papp',
-					'Takács',
-					'Juhász',
-					'Lakatos',
-					'Mészáros',
-					'Oláh',
-					'Simon',
-					'Rácz',
-					'Fekete',
-				],
-			},
-			Francais: {
-				men: [
-					'Gabriel',
-					'Adam',
-					'Raphaël',
-					'Louis',
-					'Arthur',
-					'Paul',
-					'Alexandre',
-					'Victor',
-					'Mohamed',
-					'Joseph',
-				],
-				women: [
-					'Louise',
-					'Emma',
-					'Alice',
-					'Chloé',
-					'Jeanne',
-					'Inès',
-					'Sarah',
-					'Léa',
-					'Charlotte',
-					'Anna',
-				],
-				surnames: [
-					'Martin',
-					'Bernard',
-					'Thomas',
-					'Robert',
-					'Richard',
-					'Petit',
-					'Durand',
-					'Leroy',
-					'Moreau',
-					'Simon',
-					'Laurent',
-					'Lefebvre',
-					'Michel',
-					'Garcia',
-					'David',
-					'Bertrand',
-					'Roux',
-					'Vincent',
-					'Fournier',
-					'Morel',
-					'Girard',
-					'André',
-					'Lefèvre',
-					'Mercier',
-					'Dupont',
-					'Lambert',
-					'Bonnet',
-					'François',
-					'Martinez',
-				],
-			},
-			Finnland: {
-				men: [
-					'Onni',
-					'Elias',
-					'Leo',
-					'Väinö',
-					'Oliver',
-					'Eetu',
-					'Eino',
-					'Noel',
-					'Leevi',
-					'Niilo',
-				],
-				women: [
-					'Sofia',
-					'Aino',
-					'Eevi',
-					'Venla',
-					'Emma',
-					'Aada',
-					'Pihla',
-					'Ella',
-					'Helmi',
-					'Emilia',
-				],
-				surnames: [
-					'Korhonen',
-					'Virtanen',
-					'Mäkinen',
-					'Nieminen',
-					'Mäkelä',
-					'Hämäläinen',
-					'Laine',
-					'Heikkinen',
-					'Koskinen',
-					'Järvinen',
-					'Lehtonen',
-					'Lehtinen',
-					'Saarinen',
-					'Salminen',
-					'Heinonen',
-					'Niemi',
-					'Heikkilä',
-					'Kinnunen',
-					'Salonen',
-					'Turunen',
-					'Salo',
-					'Laitinen',
-					'Tuominen',
-					'Rantanen',
-					'Karjalainen',
-					'Jokinen',
-					'Mattila',
-					'Savolainen',
-					'Lahtinen',
-					'Ahonen',
-				]
-			},
-			GB: {
-				men: [
-					'Oliver',
-					'George',
-					'Harry',
-					'Jack',
-					'Jacob',
-					'Noah',
-					'Charlie',
-					'Muhammad',
-					'Thomas',
-					'Oscar',
-				],
-				women: [
-					'Olivia',
-					'Amelia',
-					'Emily',
-					'Isla',
-					'Ava',
-					'Jessica',
-					'Isabella',
-					'Lily',
-					'Ella',
-					'Mia',
-				],
-				surnames: [
-					'Smith',
-					'Jones',
-					'Taylor',
-					'Brown',
-					'Williams',
-					'Wilson',
-					'Johnson',
-					'Davies',
-					'Robinson',
-					'Wright',
-					'Thompson',
-					'Evans',
-					'Walker',
-					'White',
-					'Roberts',
-					'Green',
-					'Hall',
-					'Wood',
-					'Jackson',
-					'Clarke',
-				],
-			},
-		},
+	locale: {
+		city: 'Saint-Petersburg',
+		utc: +3,
 	},
-
+	preset: 'default',
 };
 
 const getRnd = (min, max) => {
@@ -240,6 +32,57 @@ const getRnd = (min, max) => {
 	mn = Math.ceil(mn);
 	mx = Math.floor(mx);
 	return Math.floor(Math.random() * (mx - mn)) + mn;
+};
+
+const generateFullName = (userEdits) => {
+
+	if (userEdits) {
+		let name = '';
+		let surname = '';
+		let fullName = '';
+		switch (userEdits.includes(' ')) {
+			case true:
+				const userEditsArray = userEdits.split(' ');
+				name = userEditsArray[0];
+				surname = userEditsArray[1];
+				fullName = `${name} ${surname}`;
+				return {
+					name,
+					surname,
+					fullName,
+				};
+
+			default:
+				return {
+					name: userEdits,
+					surname: userEdits,
+					fullName: userEdits,
+				};
+		}
+	} else {
+		let country = Object.keys(namesData)[getRnd(0, Object.keys(namesData).length)];
+		country = namesData[country];
+		const gender = Object.keys(country)[getRnd(0, 2)];
+		const names = country[gender];
+		const surnames = country.surnames;
+
+		const name = names[getRnd(0, names.length)];
+		const surname = surnames[getRnd(0, surnames.length)];
+		const fullName = `${name} ${surname}`;
+
+		return {
+			name,
+			surname,
+			fullName,
+		};
+	}
+};
+
+const updateProposal = () => {
+	proposal.length = 0;
+	proposal.push(dataQueries.getGreeting(dataUser.client));
+	proposal.push(dataQueries.getSignature(dataUser.freelancer));
+	proposal.push(dataQueries.getLocale(dataUser.locale));
 };
 
 const dataQueries = {
@@ -253,6 +96,8 @@ const dataQueries = {
 		switch (typeof greeting) {
 			case 'function':
 				return greeting(name);
+			case 'object':
+				return greeting[0](dataUser.freelancer);
 			default:
 				return greeting;
 		}
@@ -279,40 +124,27 @@ const dataQueries = {
 	},
 };
 
-const runTheGame = () => {
-	const proposalDefault = [
-		'<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt architecto rem molestias nulla minima. Delectus vitae rem nemo debitis possimus exercitationem magni quos provident architecto dolores rerum, placeat iusto fuga.</p>',
-		'<p>Quaerat aspernatur sed fugiat sequi est delectus dignissimos eligendi autem doloremque ea quasi at a reprehenderit amet dolorum sit nulla, molestias deserunt hic animi modi provident. Enim explicabo asperiores hic!</p>',
-		'<p>Doloribus ea voluptatem neque, nihil qui modi dolor enim tempore ipsam eaque eius aperiam repellendus sequi dolorem assumenda itaque sed, eum, distinctio incidunt quidem dolore possimus corrupti consequuntur. Velit, nesciunt?</p>',
-		'<p>Porro consequuntur in blanditiis ipsa distinctio, nihil a aperiam quibusdam omnis eum ducimus quos aspernatur numquam reprehenderit! Vel vitae quisquam commodi aperiam veniam, impedit in ea sed! Sequi, nostrum quod?</p>',
-		'<p>Vitae voluptatem rerum nihil voluptas fugiat odit sapiente modi provident quod, cupiditate adipisci itaque perferendis esse harum tempora sint fuga. Numquam, vero sit! Maiores quidem quisquam aut illo consequatur. Numquam!</p>',
-	];
-	const dataDefault = {
-		client: {
-			name: 'Hiring Manager',
-		},
-		freelancer: {
+const runTheGame = (set) => {
+	if (set.includes('ProSr')) {
+		dataUser.freelancer = {
 			name: 'Prokhor',
 			surname: 'Vasil\'yev',
-		},
-		locale: {
-			city: 'Saint—Petersburg',
-			utc: +3,
-		},
-	};
-	proposalDefault.push(dataQueries.getGreeting(dataDefault.client.name));
-	proposalDefault.push(dataQueries.getSignature(dataDefault.freelancer));
-	proposalDefault.push(dataQueries.getLocale(dataDefault.locale));
-	return proposalDefault;
+		};
+		dataUser.client.fullName = 'Hiring Manager';
+	} else {
+		dataUser.freelancer = generateFullName();
+		dataUser.client = generateFullName();
+	}
+	updateProposal();
+	return proposal;
 };
-dataUser.handlers = {
+const setDataUser = {
 	setUserPreset(presetValue) {
 		if (presetValue) dataUser.preset = presetValue;
 		else dataUser.preset = 'basic';
 	},
 	setUserClientName(name) {
-		debugger;
-		if (name || !!name.length) dataUser.client.name = name;
+		if (name || !!name.length) dataUser.client = generateFullName(name);
 		else dataUser.client.name = 'Hiring Manager';
 	}
 };

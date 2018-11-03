@@ -17,6 +17,7 @@ const elems = {
 	reject: document.createElement('button'),
 	text: document.createElement('textarea'),
 	select: document.createElement('select'),
+	meter: document.createElement('meter'),
 };
 
 const bg = () => `rgb(${getRnd(0, 115) + 140},${getRnd(0, 40) + 215},${getRnd(0, 115) + 140})`;
@@ -105,7 +106,7 @@ const steps = {
 				elems.accept.className = 'fi fo a';
 				elems.accept.dataset.style = 'first-in';
 				elems.bg.appendChild(elems.accept);
-				elems.accept.innerText = '☝Create☝';
+				elems.accept.innerText = 'Create';
 				elems.accept.style.margin = `${elems.h1.offsetTop}px`;
 				elems.accept.style.width = `${elems.h1.clientWidth}px`;
 			}, 100);
@@ -120,7 +121,11 @@ const steps = {
 			elems.field.className = 'fi fo si so a';
 			elems.field.dataset.style = 'first-in';
 
-			elems.leg.innerText = '8 quick steps:';
+			elems.meter.min = 0;
+			elems.meter.max = 9;
+			elems.meter.value = 1;
+			elems.meter.style.fontSize = '2em';
+			elems.leg.append(elems.meter);
 
 			elems.h2.innerText = 'Select a category of tips';
 
@@ -146,13 +151,15 @@ const steps = {
 					elems.field.insertBefore(elems.text, elems.accept);
 					elems.text.style.width = '100%';
 					elems.text.autofocus = true;
-					elems.text.placeholder = dataUser.client.name;
+					elems.text.placeholder = dataUser.client.fullName;
+
+					elems.accept.innerText = 'Upload';
 					break;
 
 				default:
 					elems.bg.style.background = bg();
 
-					elems.leg.innerText = 'First step:';
+					elems.meter.value = 2;
 
 					elems.h2.innerText = 'Do you know the customer\'s name?';
 
@@ -166,8 +173,24 @@ const steps = {
 					break;
 			}
 		},
-		() => {
+		(question) => {
+			elems.bg.style.background = bg();
 
+			elems.meter.value = 3;
+
+			elems.h2.innerText = 'Не Желаете ли подпись?';
+
+			if (question) elems.field.insertBefore(elems.reject, elems.accept);
+			else {
+				elems.field.appendChild(elems.reject);
+				elems.field.appendChild(elems.accept);
+			}
+
+			elems.reject.innerText = 'No';
+			elems.accept.innerText = 'Yes';
+
+			elems.field.dataset.style = 'first-in';
+			placeTheCenter(elems.field, elems.header.offsetHeight + elems.header.offsetTop);
 		},
 		() => {
 
@@ -225,8 +248,11 @@ const steps = {
 					elems.reject.remove();
 					break;
 				case 2:
-					alert(' выгружаю представление');
-					step3();
+					elems.field.dataset.style = 'first-out';
+					setTimeout(() => {
+						elems.text.remove();
+						step3(1);
+					}, 500);
 					break;
 				default:
 					elems.field.dataset.style = 'first-out';
@@ -281,6 +307,6 @@ const getDataUser = {
 		}
 	},
 	clientName() {
-
+		return elems.text.value;
 	}
 }

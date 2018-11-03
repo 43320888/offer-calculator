@@ -6,7 +6,7 @@
  * Использует модель и представление для реализации необходимого действия.
  */
 const step0 = () => {
-	steps.load[0](runTheGame());
+	steps.load[0](runTheGame(location.href));
 	elems.h1.onclick = reloadPage;
 	elems.pre.onclick = copyToClipboard;
 	keyBinding(true);
@@ -29,7 +29,7 @@ const step1 = () => {
 	};
 	elems.accept.onclick = () => {
 		const takeOutData = getDataUser.preset();
-		dataUser.handlers.setUserPreset(takeOutData);
+		setDataUser.setUserPreset(takeOutData);
 		steps.unload[1]();
 	};
 };
@@ -45,19 +45,21 @@ const step2 = () => {
 	};
 	const nextStep = () => {
 		const name = getDataUser.clientName();
-		dataUser.handlers.setUserClientName(name);
+		setDataUser.setUserClientName(name);
 		steps.unload[2](2);
 	};
 };
-const step3 = () => {
-	alert('Шаг Второй');
-}
+const step3 = (answer) => {
+	if (answer) steps.load[3](answer);
+	else steps.load[3]();
+};
+
 const keyBinding = (state) => {
 	if (!state) {
 		document.onkeypress = '';
 	} else {
 		document.onkeypress = (e) => {
-			if ((event.ctrlKey || event.metaKey) && [121, 13, 110, 8, 27, 114].includes(e.keyCode)) {
+			if ((e.ctrlKey || e.metaKey) && [121, 13, 110, 8, 27, 114].includes(e.keyCode)) {
 				const mouseClick = new MouseEvent('click');
 
 				switch (e.keyCode) {
