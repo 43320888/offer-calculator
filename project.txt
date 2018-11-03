@@ -1,0 +1,69 @@
+===========================================================
+Controller
+===========================================================
+	step0()
+	step1()
+	step2()
+	step3()
+	keybinding()
+===========================================================
+View
+===========================================================
+	elems{}
+	bg()
+	copyToClipboard()
+	appendTextDefer()
+	reloadPage()
+	onResize()
+	placeTheCenter()
+	removeAttributes
+	steps{
+		load[(),(),(),(),(),(),(),(),()]
+		unload[(),(),(),(),(),(),(),(),()]
+	}
+	getDataUser{
+		preset()
+		clientName()
+	}
+===========================================================
+Model
+===========================================================
+	proposal[]
+	dataUser{
+		freelancer{}
+		client{}
+		locale{}
+		preset
+	}
+	getRnd()
+	generateFullName()
+	updateProposal
+	dataQueries{
+		getClientChecking()
+		getProjectEvaluates()
+		getGreeting()
+		getQualiphication()
+		getInterview()
+		getEpilog()
+		getSignature()
+		getLocale()
+	}
+	runTheGame()
+	setDataUser{
+		setUserPreset()
+		setUserClientName()
+	}
+===========================================================
+DB
+===========================================================
+	data{
+		clientChecking()
+		projectEvaluates{}
+		greetings[]
+		qualiphications[]
+		interview{}
+		epilogs{}
+		signatures[]
+		locales[]
+	}
+	namesData

@@ -40,7 +40,7 @@ const step2 = () => {
 	};
 	elems.accept.onclick = () => {
 		steps.unload[2](1);
-		steps.load[2](2);
+		steps.load[2](2, dataQueries.getGreeting(generateFullName(), elems.input));
 		elems.accept.onclick = nextStep;
 	};
 	const nextStep = () => {
