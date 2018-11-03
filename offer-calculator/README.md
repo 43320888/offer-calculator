@@ -3,7 +3,7 @@ Freelancer tool
 ## Description 
 Crawler calculator is a handy tool for freelancers.
 Structures thoughts, give recommendations, gives hints.
-<img src="./svg/mvc.svg">
+<img src="./mvc.svg">
 ## Table of contents
 - [x] UI/UX
 - [x] ️️SVG (Scalable vector graphics without a single raster pixel)
