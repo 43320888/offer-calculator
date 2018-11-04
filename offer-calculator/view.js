@@ -18,9 +18,10 @@ const elems = {
 	text: document.createElement('textarea'),
 	select: document.createElement('select'),
 	meter: document.createElement('meter'),
+	input: document.createElement('input'),
 };
-
-const bg = () => `rgb(${getRnd(0, 115) + 140},${getRnd(0, 40) + 215},${getRnd(0, 115) + 140})`;
+elems.input.autofocus = true;
+elems.input.style.cssText = 'font-weight: bold; color: #080; border: none';
 
 const copyToClipboard = (event) => {
 	const range = document.createRange();
@@ -89,7 +90,6 @@ const steps = {
 		(proposal) => {
 			document.body.appendChild(elems.bg);
 			elems.bg.style.minHeight = `${document.documentElement.clientHeight}px`;
-			elems.bg.style.background = bg();
 
 			elems.h1.className = 'fi fo a';
 			elems.h1.dataset.style = 'first-in';
@@ -116,7 +116,6 @@ const steps = {
 			}, getRnd(164, 1688));
 		},
 		() => {
-			elems.bg.style.background = bg();
 
 			elems.field.className = 'fi fo si so a';
 			elems.field.dataset.style = 'first-in';
@@ -143,21 +142,20 @@ const steps = {
 			elems.bg.appendChild(elems.field);
 			placeTheCenter(elems.field, elems.header.offsetHeight + elems.header.offsetTop);
 		},
-		(step) => {
+		(step, content) => {
 			switch (step) {
 				case 2:
-					elems.bg.style.background = bg();
 					elems.h2.innerText = 'Put the client\'s name here';
-					elems.field.insertBefore(elems.text, elems.accept);
-					elems.text.style.width = '100%';
-					elems.text.autofocus = true;
-					elems.text.placeholder = dataUser.client.fullName;
+					elems.field.insertBefore(elems.pre, elems.accept);
+					elems.pre.innerHTML = content;
+					// elems.pre.style.width = '100%';
+					// elems.pre.autofocus = true;
+					// elems.pre.placeholder = dataUser.client.fullName;
 
 					elems.accept.innerText = 'Upload';
 					break;
 
 				default:
-					elems.bg.style.background = bg();
 
 					elems.meter.value = 2;
 
@@ -174,7 +172,6 @@ const steps = {
 			}
 		},
 		(question) => {
-			elems.bg.style.background = bg();
 
 			elems.meter.value = 3;
 

@@ -1,28 +1,33 @@
 /** DB — БАЗА ДАННЫХ
  *  Её величество
  */
+const proposal = [];
 const data = {
-	clientChecking: answer => `Answering your question: ${answer}`,
+	clientChecking: string => `Answering your question: ${string}`,
 	projectEvaluates: {
 		basic: [''],
 		scriptsAndUtilities: [''],
 	},
 	greetings: [
-		client => `Мr. ${client.fullName}\n\n`,
-		client => `Dear ${client.fullName}\n\n`,
-		client => `Dear ${client.fullName}.\n\n`,
-		client => `Dear Mr. ${client.fullName}\n\n`,
-		client => `Hello ${client.fullName}.\n`,
-		'Hello, ',
-		'Hello.\n',
-		'Hello,\n\n',
-		'Greetings! ',
-		client => `Hi ${client.fullName}. `,
-		'Hi. ',
-		[freelancer => `Hi my name is ${freelancer.name}.\n\n`],
-		'Hi,\n\n',
-		'Hello Sir,\n\n',
-		'Dear Sir,\n\n',
+		[
+			'Hello, ',
+			'Hello.\n',
+			'Hello,\n\n',
+			'Greetings! ',
+			'Hi. ',
+			[string => `Hi my name is ${string}.\n\n`],
+			'Hi,\n\n',
+			'Hello Sir,\n\n',
+			'Dear Sir,\n\n',
+		],
+		[
+			string => `Мr. ${string}\n\n`,
+			string => `Dear ${string}\n\n`,
+			string => `Dear ${string}.\n\n`,
+			string => `Dear Mr. ${string}\n\n`,
+			string => `Hello ${string}.\n`,
+			string => `Hi ${string}. `,
+		],
 	],
 	qualiphications: {
 		whyMe: {

@@ -91,13 +91,20 @@ const dataQueries = {
 	},
 	getProjectEvaluates() {
 	},
-	getGreeting(name) {
-		const greeting = data.greetings[getRnd(0, data.greetings.length)];
+	getGreeting(clientObg, input) {
+		let greetings;
+		let greeting;
+		if (clientObg) {
+			greetings = data.greetings[getRnd(0, data.greetings.length)];
+			greeting = greetings[getRnd(0, greetings.length)];
+		} else {
+			greeting = data.greetings[0][getRnd(0, data.greetings.length)];
+		}
 		switch (typeof greeting) {
 			case 'function':
-				return greeting(name);
+				return greeting(clientObg);
 			case 'object':
-				return greeting[0](dataUser.freelancer);
+				return greeting(dataUser.freelancer);
 			default:
 				return greeting;
 		}
