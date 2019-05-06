@@ -1,6 +1,5 @@
 # hacking
 Everything about code architecture except content and backend.
 ## License
-Copyright (c) Logbook. All rights reserved.
+The license is the same as our [README](https://github.com/hacking-logbook/hacking-logbook.github.io) above.
 
-Licensed under the [#EPL](http://www.gnu.org/licenses/license-list.html#EPL) License.
