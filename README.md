@@ -1,4 +1,4 @@
-# hacking [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3238654.svg)](https://doi.org/10.5281/zenodo.3238654)
+# hacking ![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3238654.svg)
 
 Everything about code architecture except content and backend.
 ## License
